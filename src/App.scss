@@ -1,0 +1,107 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 2rem 1rem;
+  background-color: black;
+  color: whitesmoke;
+  .textsContainer {
+    display: flex;
+    flex-direction: column;
+  }
+  .filtersContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .filterPerPages {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+
+      .inputContainer {
+        display: flex;
+        flex-direction: column;
+        width: 100px;
+
+        .labels {
+          display: flex;
+          justify-content: space-between;
+
+          label {
+            font-size: 0.8rem;
+            color: gray;
+          }
+        }
+      }
+    }
+    .filterPerGenres {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      flex: 1;
+    }
+    h2 {
+      font-size: 0.8rem;
+    }
+  }
+  .gridContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 1rem;
+    margin-top: 2rem;
+
+    .cardContainer {
+      position: relative;
+      transition: all 400ms ease;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: 1;
+      }
+
+      .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        transition: opacity 300ms ease;
+      }
+
+      .cardButton {
+        position: absolute;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 13px;
+        font-weight: bold;
+        color: white;
+        background-color: rgba(0, 0, 0, 0.7);
+        padding: 10px;
+        border-radius: 5px;
+        z-index: 10;
+        width: 120px;
+        opacity: 0;
+        transition: opacity 300ms ease;
+      }
+
+      &:hover {
+        .overlay {
+          opacity: 1;
+        }
+
+        .cardButton {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
